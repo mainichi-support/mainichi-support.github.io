@@ -100,7 +100,10 @@
     width:240px;
   }
   .feature-shot img{
-    width:100%; display:block;
+    /* 【重要】width:100% には必ず height:auto を組にする。
+       img に width/height 属性を書くと、height:auto が無いときに
+       属性の高さ(1039px)がそのまま使われ、縦に引き伸ばされる。 */
+    width:100%; height:auto; display:block;
     border-radius:20px;
     box-shadow:0 16px 36px rgba(42,34,51,0.28);
     border:1px solid rgba(42,34,51,0.06);
@@ -109,7 +112,7 @@
     width:300px;
     display:flex; gap:12px;
   }
-  .feature-shot.two-up img{ width:50%; }
+  .feature-shot.two-up img{ width:50%; height:auto; }
 
   .feature-body{ flex:1 1 auto; min-width:0; }
   .feature-eyebrow{
