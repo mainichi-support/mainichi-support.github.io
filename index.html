@@ -260,7 +260,7 @@
   <div class="hero-badge">🌸</div>
   <h1 class="title">まいにちサポート<br>つかいかたガイド</h1>
   <p class="lead">毎日をちょっと楽にする、家族みんなのためのアプリ。<br>迷ったときは、このページを見返してね。</p>
-  <div class="version-pill">📱 ビルド102版（2026年9月）</div>
+  <div class="version-pill">📱 ビルド103版（2026年9月）</div>
 </header>
 
 <div class="wrap">
@@ -276,6 +276,7 @@
   <a href="#renraku">📣 れんらく</a>
   <a href="#play">🏃 あそび許可</a>
   <a href="#memo">📝 メモ</a>
+  <a href="#tellfamily">📤 家族に伝える</a>
   <a href="#weather">☀️ 天気</a>
   <a href="#outfit">👚 服装アドバイス</a>
   <a href="#med">💊 おくすり</a>
@@ -335,14 +336,15 @@
 </section>
 
 <section class="feature" id="reminder">
-  <div class="feature-shot"><img src="./img/app-reminder.png" width="480" height="1039" loading="lazy" alt="目立つお知らせの一覧"></div>
+  <div class="feature-shot two-up"><img src="./img/app-reminder.png" width="480" height="1039" loading="lazy" alt="目立つお知らせの一覧"><img src="./img/app-timepicker.png" width="480" height="1039" loading="lazy" alt="時間をえらぶ画面"></div>
   <div class="feature-body">
     <span class="feature-eyebrow"><span class="emoji">📢</span>目立つお知らせ</span>
     <h2 class="feature-power">決まった時間に、<br>画面いっぱいで。</h2>
     <p class="feature-desc">「16:30になったら、じゅんびの時間だよ」みたいに、決めた時刻になると<strong>画面いっぱい</strong>に出るお知らせだよ。アプリを閉じていても、端末の通知で教えてくれる。</p>
     <p class="feature-desc">曜日もえらべるから、「平日だけ」「土日だけ」もできるし、「◯月◯日の1回だけ」にすることもできるよ。1回だけのお知らせは、その日が過ぎると自動で片づくから、消し忘れの心配なし。</p>
     <p class="feature-desc">同じ画面の下のほうに、カレンダーの予定につけた通知もまとめて出るよ。「何がいつ鳴るのか」を1か所で確かめられる。</p>
-    <div class="tag-row"><span class="mini-tag">曜日をえらべる</span><span class="mini-tag">1回だけ</span><span class="mini-tag">予定の通知もまとめて見られる</span></div>
+    <p class="feature-desc">時間をえらぶところは、<strong>24時間ぐるぐる回る</strong>よ。23の下には0が続くから、夜おそくや朝はやくの時刻も、端まで戻さずにすぐえらべる。</p>
+    <div class="tag-row"><span class="mini-tag">曜日をえらべる</span><span class="mini-tag">1回だけ</span><span class="mini-tag">時刻は24時間まわる</span><span class="mini-tag">予定の通知もまとめて見られる</span></div>
   </div>
 </section>
 
@@ -394,10 +396,23 @@
     <p class="feature-desc">「＋メモを登録」は、自分だけが見るわすれものリストや記録用。日付をえらべるから、「あしたの持ち物」も先に書いておけるよ。</p>
     <p class="feature-desc">「💌家族へ伝えたいこと」は、送りさきをえらんで書くと、その人のLINEに通知が届くよ。写真やチェックリストも付けられる。</p>
     <p class="feature-desc">送りさきに出てくる名前は、おうちの人が⚙️で決めた呼び名だよ（「ママ」「パパ」「おばあちゃん」など、おうちごとにちがうよ）。</p>
+    <p class="feature-desc">ふつうに登録したメモでも、あとから家族に送れるよ。<a href="#tellfamily">つぎの「📤 家族に伝える」</a>を見てね。</p>
   </div>
 </section>
 
-<section class="feature" id="weather">
+<section class="feature" id="tellfamily">
+  <div class="feature-shot"><img src="./img/app-memoshare.png" width="480" height="1039" loading="lazy" alt="家族に伝える画面"></div>
+  <div class="feature-body">
+    <span class="feature-eyebrow"><span class="emoji">📤</span>家族に伝える</span>
+    <h2 class="feature-power">あとから思い立っても、<br>送れる。</h2>
+    <p class="feature-desc">書いたメモの下にある「<strong>📤 家族に伝える</strong>」を押すと、そのメモをおうちの人のLINEに送れるよ。書いたときに送るか決めなくていいから、「やっぱり伝えておこう」と思ったときでも大丈夫。</p>
+    <p class="feature-desc">押すとこの画面が出て、<strong>送る内容と送りさきを確かめてから</strong>送れるよ。送れたら、そのメモに「📤 送信ずみ」と時刻が付く。</p>
+    <p class="feature-desc">同じメモをもう一度送りたいときは、もう一度押せばいいよ。そのときは「すでに送っています」と教えてくれて、確認してから送るようになっているから、まちがえて二重に届く心配はないよ。</p>
+    <div class="tag-row"><span class="mini-tag">あとから送れる</span><span class="mini-tag">送信ずみが残る</span><span class="mini-tag">もう一度も送れる</span></div>
+  </div>
+</section>
+
+<section class="feature rev" id="weather">
   <div class="feature-shot"><img src="./img/app-weather.png" width="480" height="1039" loading="lazy" alt="天気画面"></div>
   <div class="feature-body">
     <span class="feature-eyebrow"><span class="emoji">☀️</span>天気</span>
@@ -407,7 +422,7 @@
   </div>
 </section>
 
-<section class="feature rev" id="outfit">
+<section class="feature" id="outfit">
   <div class="feature-shot"><img src="./img/app-outfit.png" width="480" height="1039" loading="lazy" alt="服装アドバイス画面"></div>
   <div class="feature-body">
     <span class="feature-eyebrow"><span class="emoji">👚</span>服装アドバイス</span>
@@ -416,7 +431,7 @@
   </div>
 </section>
 
-<section class="feature" id="med">
+<section class="feature rev" id="med">
   <div class="feature-shot two-up"><img src="./img/app-med.png" width="480" height="1039" loading="lazy" alt="おくすり画面"><img src="./img/app-medsample.png" width="480" height="1039" loading="lazy" alt="例から作る"></div>
   <div class="feature-body">
     <span class="feature-eyebrow"><span class="emoji">💊</span>おくすり</span>
@@ -427,7 +442,7 @@
   </div>
 </section>
 
-<section class="feature rev" id="export">
+<section class="feature" id="export">
   <div class="feature-shot"><img src="./img/app-export.png" width="480" height="1039" loading="lazy" alt="ふりかえりを送るモーダル"></div>
   <div class="feature-body">
     <span class="feature-eyebrow"><span class="emoji">📤</span>ふりかえり</span>
@@ -436,7 +451,7 @@
   </div>
 </section>
 
-<section class="feature" id="profile">
+<section class="feature rev" id="profile">
   <div class="feature-shot"><img src="./img/app-profile.png" width="480" height="1039" loading="lazy" alt="名前とアイコン設定モーダル"></div>
   <div class="feature-body">
     <span class="feature-eyebrow"><span class="emoji">⚙️</span>名前とアイコン</span>
@@ -461,7 +476,7 @@
   <div class="thanks">これからも、少しずつ育てていくよ 🌱</div>
   <p>使っていて「こうだったらいいな」があったら、いつでも教えてね。<br>このガイドも、アプリのアップデートに合わせて更新していきます。</p>
   <p class="outro-links"><a href="./setup-index.html">はじめての設定ガイド</a> ／ <a href="./privacy.html">プライバシーポリシー</a></p>
-  <p style="margin-top:18px; font-size:12px; opacity:.75;">つかいかたガイド ビルド102版 ／ 2026年9月16日</p>
+  <p style="margin-top:18px; font-size:12px; opacity:.75;">つかいかたガイド ビルド103版 ／ 2026年9月16日</p>
 </footer>
 
 
