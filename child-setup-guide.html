@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お子さんに合わせる設定 | まいにちサポート</title>
+<style>
+  body{font-family:'Hiragino Maru Gothic ProN','Zen Maru Gothic',sans-serif; max-width:720px; margin:0 auto; padding:32px 20px 64px; color:#4A3A5B; background:#FAF7FC; line-height:1.8;}
+  h1{font-size:24px; margin-bottom:4px;}
+  h2{font-size:18px; margin-top:36px; background:#EAE1FA; padding:8px 14px; border-radius:10px;}
+  h3{font-size:15px; color:#B93A6B; margin-top:22px; margin-bottom:6px;}
+  .note{background:#FFF1E9; border:1px solid #E0A87A; border-radius:10px; padding:10px 14px; font-size:13px; color:#9E5220; margin:14px 0;}
+  .calm{background:#EDF6EC; border:1px solid #8FBF8A; border-radius:10px; padding:12px 16px; font-size:13.5px; color:#3F6B3A; margin:14px 0;}
+  .warn{background:#FCEBEA; border:1px solid #E0827A; border-radius:10px; padding:12px 16px; font-size:13.5px; color:#B3261E; margin:14px 0;}
+  .step{background:#fff; border:1px solid #E8E0F2; border-radius:12px; padding:14px 16px; margin:10px 0;}
+  code{background:#EDE6F9; padding:2px 6px; border-radius:6px; font-size:0.9em; word-break:break-all;}
+  ol, ul{padding-left:22px;}
+  li{margin-bottom:6px;}
+  .q{font-weight:bold; color:#B93A6B; margin-top:18px; margin-bottom:2px;}
+  .a{margin-top:0;}
+  table{border-collapse:collapse; width:100%; font-size:13.5px; margin:10px 0; background:#fff;}
+  th,td{border:1px solid #E8E0F2; padding:8px 10px; text-align:left; vertical-align:top;}
+  th{background:#F4F0FB; white-space:nowrap;}
+  figure{margin:14px 0;}
+  figure img{width:100%; height:auto; display:block; border:1px solid #E0D8EE; border-radius:10px; background:#fff;}
+  figcaption{font-size:12.5px; color:#7A6B8A; margin-top:6px;}
+  .pin{display:inline-flex; align-items:center; justify-content:center; width:19px; height:19px; border-radius:50%;
+       background:#E8467C; color:#fff; font-size:12px; font-weight:bold; vertical-align:-3px; margin:0 2px;}
+  @media (max-width:520px){ th{white-space:normal;} table{font-size:12.5px;} }
+  @media (max-width:520px){ body{font-size:14.5px; padding:24px 16px 48px;} th,td{padding:7px 8px;} }
+  /* ===== ガイド共通ナビ(トップへ戻る・目次リンク) 2026-09-13 追加 ===== */
+  html{scroll-behavior:smooth;}
+  h2{scroll-margin-top:64px;}
+  .guide-topbar{position:sticky; top:0; z-index:1000; display:flex; align-items:center; gap:10px;
+    background:rgba(250,247,252,0.96); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
+    border-bottom:1px solid #E8E0F2; padding:10px 0; margin:0 0 6px; font-size:14px;}
+  .guide-topbar a.gt-back{color:#B93A6B; font-weight:bold; text-decoration:none; white-space:nowrap;}
+  .guide-topbar a.gt-back:hover,.guide-topbar a.gt-back:active{text-decoration:underline;}
+  .guide-topbar .gt-title{color:#7A6B8A; font-size:12.5px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+  .back-to-top{position:fixed; right:16px; bottom:16px; z-index:1000; width:48px; height:48px; padding:0;
+    border:none; border-radius:50%; background:#E8467C; color:#fff; font-size:22px; line-height:48px;
+    box-shadow:0 3px 10px rgba(74,58,91,0.3); cursor:pointer; opacity:0; visibility:hidden;
+    transition:opacity .25s, visibility .25s;}
+  .back-to-top.show{opacity:.92; visibility:visible;}
+  .back-to-top:hover{opacity:1;}
+  .overview-toc a{color:#4A3A5B; text-decoration:none; border-bottom:1px dotted #C9A8DE;}
+  .overview-toc a:hover,.overview-toc a:active{color:#B93A6B; border-bottom-color:#B93A6B;}
+  @media (max-width:520px){ .back-to-top{width:44px; height:44px; line-height:44px; font-size:20px;} }
+  /* ===== ガイド仕上げ D:進捗 / E:画像拡大 / F:折りたたみ (2026-09-13) ===== */
+  /* D 進捗 */
+  .guide-topbar .gt-title{flex:0 1 auto; min-width:0;}
+  .gt-progress{flex:0 0 auto; margin-left:auto; font-size:12px; font-weight:700; color:#B93A6B;
+    white-space:nowrap; background:#FCEBF1; padding:3px 11px; border-radius:999px;}
+  @media (max-width:400px){ .guide-topbar .gt-title{display:none;} }
+  /* F 折りたたみ */
+  h2.collapsible{cursor:pointer; position:relative; padding-right:36px; -webkit-user-select:none; user-select:none;}
+  h2.collapsible::after{content:"\25BC"; position:absolute; right:14px; top:50%; transform:translateY(-50%);
+    font-size:11px; color:#8a7a9a; transition:transform .2s;}
+  h2.collapsible.collapsed::after{transform:translateY(-50%) rotate(-90deg);}
+  h2.collapsible .done-badge{display:none; margin-left:8px; font-size:12px; color:#2B7350; font-weight:700;}
+  h2.collapsible.collapsed .done-badge{display:inline;}
+  .step-hidden{display:none !important;}
+  /* E ライトボックス */
+  figure img, .feature-shot img{cursor:zoom-in;}
+  .lightbox{position:fixed; inset:0; z-index:2000; background:rgba(30,22,38,0.92);
+    display:flex; align-items:center; justify-content:center; padding:20px; cursor:zoom-out;
+    opacity:0; visibility:hidden; transition:opacity .2s ease, visibility .2s ease;}
+  .lightbox.open{opacity:1; visibility:visible;}
+  .lightbox img{max-width:100%; max-height:100%; border-radius:10px; box-shadow:0 10px 40px rgba(0,0,0,0.5);}
+  .lightbox .lb-close{position:absolute; top:14px; right:16px; width:44px; height:44px; border:none;
+    border-radius:50%; background:rgba(255,255,255,0.92); color:#4A3A5B; font-size:20px; cursor:pointer; font-family:inherit;}
+  /* 端末のスクリーンショット(縦長)は幅をおさえる */
+  figure.phone img{max-width:270px; margin:0 auto; border-radius:14px;}
+  figure.phone figcaption{text-align:center;}
+  footer{margin-top:44px; padding-top:18px; border-top:1px solid #E8E0F2; color:#7A6B8A; font-size:13px;}
+  a{color:#6B4E9E;}
+</style>
+</head>
+<body>
+<div class="guide-topbar">
+  <a class="gt-back" href="./setup-index.html">← 設定ガイドの目次</a>
+  <span class="gt-title">お子さんに合わせる設定</span>
+</div>
+
+<h1>👧 お子さんに合わせる設定</h1>
+<p class="sub" style="color:#7A6B8A; font-size:14px; margin:0 0 4px;">まいにちサポート ／ 第2部（アプリの中だけで完結します・15分ほど）</p>
+
+<div class="calm">
+  ここはすべて<strong>アプリの中の操作だけ</strong>です。外部サービスの登録はありません。<br>
+  アプリの ⚙️（右上の歯車）→ <strong>「🚀 やることの一覧を見る」</strong> を開くと、この8項目がチェックリストになっています。上から順に押していけば、このページと同じ順番で進みます。
+</div>
+
+<figure class="phone">
+  <img src="./img/app-setup.png" width="480" height="1039" loading="lazy" alt="やることの一覧">
+  <figcaption>⚙️ →「🚀 やることの一覧を見る」。終わった項目に ✅ が付き、残りが上に出ます。</figcaption>
+</figure>
+
+<figure class="phone">
+  <img src="./img/app-settings.png" width="480" height="1039" loading="lazy" alt="アプリの設定画面">
+  <figcaption>⚙️ の中は「お子さんのこと」「天気の地域」「家族の呼び名」などに分かれています。一覧から進めば、この中の必要な場所が順に開きます。</figcaption>
+</figure>
+
+<div class="note">
+  <strong>「ひつよう」の2つ（1 と 2）だけは必ず終わらせてください。</strong>
+  残りの6つは、あとからいつでも変えられます。まず1と2を終わらせて、お子さんと一緒に残りを埋めるのがおすすめです。
+</div>
+
+<h2 id="step1">1. 通知（LINE）の接続設定 <span style="font-size:12px; color:#B93A6B;">ひつよう</span></h2>
+
+<p>そうだんチャットと、家族へのLINE通知に使います。<strong>第1部の手順1・2で用意した2つの値</strong>（接続先のURLと、合言葉）をここに入れます。</p>
+
+<div class="step">
+  <ol style="margin:0;">
+    <li>⚙️ →「🚀 やることの一覧を見る」→「通知(LINE)の接続設定」の<strong>設定する</strong>を押す</li>
+    <li>2つの入力欄に、お渡しした値をそのまま貼り付ける</li>
+    <li><strong>保存する</strong>を押す</li>
+  </ol>
+</div>
+
+<div class="warn">
+  ここが未設定だと、ホーム画面の上に「はじめの設定がまだです」の案内が出続けます。
+  <strong>そうだんチャット・あそび許可・れんらく・家族へのメモが、すべて動きません。</strong>
+</div>
+
+<div class="note">
+  設定を代行してもらった場合は、すでに入っていることがあります。「✅ 設定済み」と出ていれば、そのままで大丈夫です。
+</div>
+
+<h2 id="step2">2. 位置情報と通知の許可 <span style="font-size:12px; color:#B93A6B;">ひつよう</span></h2>
+
+<p>iPhone 側の許可です。アプリの中だけでは決められないので、iPhoneの「設定」アプリで行います。</p>
+
+<figure class="phone">
+  <img src="./img/app-permission.png" width="480" height="1039" loading="lazy" alt="位置情報と通知の許可">
+  <figcaption>いまの状態がこの画面で確認できます。「まだ聞かれていません」なら、下のボタンからiPhoneの設定を開けます。</figcaption>
+</figure>
+
+<table>
+  <tr><th>許可</th><th>許可しないとどうなるか</th></tr>
+  <tr><td>位置情報</td><td>いまいる場所の天気が出ません（下の「6. 天気の地域」を登録すれば、位置情報なしでも天気は出せます）</td></tr>
+  <tr><td>通知</td><td><strong>おくすりの時間も、目立つお知らせも、予定の通知も鳴りません。</strong>アプリを開いている間しか気づけなくなります</td></tr>
+</table>
+
+<div class="step">
+  <p style="margin:0 0 6px;"><strong>自動で開かないときの道順</strong></p>
+  <p style="margin:0;">iPhoneの「設定」アプリ → 下にスクロールして「<strong>まいにちサポート</strong>」→「位置情報」または「通知」を選んでオンにしてください。</p>
+</div>
+
+<h2 id="step3">3. お子さんの名前とアイコン</h2>
+
+<p>ホーム画面の挨拶（「〇〇さん、ようこそ」）と、そうだんチャットの吹き出しに出る名前です。</p>
+
+<figure class="phone">
+  <img src="./img/app-profile.png" width="480" height="1039" loading="lazy" alt="名前とアイコンの設定">
+  <figcaption>AIの名前と、お子さんの名前・アイコンをそれぞれ決められます。</figcaption>
+</figure>
+
+<div class="note">
+  ここは<strong>画面に出る表示名</strong>です。本名でなくても構いません。ニックネームでも大丈夫です。<br>
+  長い名前はホームの見出しが窮屈になるので、<strong>12文字まで</strong>にしてあります。
+</div>
+
+<h2 id="step4">4. 呼ばれ方と生まれた年と月</h2>
+
+<p>そうだんチャットのAIが、お子さんを<strong>どう呼ぶか</strong>と、<strong>どの学年に合わせて話すか</strong>が決まります。</p>
+
+<div class="step">
+  <p style="margin:0 0 6px;"><strong>AIからの呼ばれ方</strong></p>
+  <p style="margin:0 0 12px;">「さくらちゃん」「さくら」「さくらさん」など、ふだん呼ばれている呼び方を入れてください。ここが空のときは「〇〇さん」と呼びます。</p>
+  <p style="margin:0 0 6px;"><strong>生まれた年と月</strong></p>
+  <p style="margin:0;">選ぶと、その下に<strong>いまの学年</strong>が出ます（例：中学1年生）。学年に合わせて、言葉づかいと漢字の難しさが変わります。</p>
+</div>
+
+<div class="calm">
+  <strong>生年月そのものはAIに送られません。</strong>送られるのは「中学1年生」という学年の文字列だけです。生まれた年も月も、アプリの外には出ません。
+</div>
+
+<h3>4月生まれの場合</h3>
+<p>4月を選ぶと「<strong>4月1日生まれですか？</strong>」の確認が出ます。日本の学年は4月2日〜翌年4月1日で区切るため、4月1日生まれだけ1つ上の学年になります。該当する場合だけチェックを入れてください。</p>
+
+<h3>日本の学年に当てはまらない場合</h3>
+<p>海外にお住まいの場合や、学年を自分で決めたい場合は、「<strong>学年を自分で指定する</strong>」の欄に直接書けます（例：<code>Grade 7</code>、<code>中学1年</code>）。ここに書いた文字が、生まれた年月より優先されます。</p>
+
+<h2 id="step5">5. 家族の呼び名</h2>
+
+<p>「💌 家族へ伝えたいこと」を書いたときの、<strong>送りさきの名前</strong>です。</p>
+
+<figure class="phone">
+  <img src="./img/app-family.png" width="480" height="1039" loading="lazy" alt="家族の呼び名の設定">
+  <figcaption>2人ぶんの呼び名とアイコンを決められます。1人だけでも構いません。</figcaption>
+</figure>
+
+<table>
+  <tr><th>入れ方</th><th>お子さんの画面に出る送りさき</th></tr>
+  <tr><td>2人とも入れた（例：ママ／パパ）</td><td>ママのみ ／ パパのみ ／ 二人とも</td></tr>
+  <tr><td>1人だけ入れた（例：ママ）</td><td>ママ（えらぶ画面は出ません）</td></tr>
+  <tr><td>どちらも空</td><td>おうちの人</td></tr>
+</table>
+
+<div class="calm">
+  ひとり親のご家庭や、祖父母の方と暮らしているご家庭でも、そのまま使えます。「ママ」「パパ」に固定されていません。
+</div>
+
+<div class="note">
+  <strong>LINE側の登録は別です。</strong>呼び名をここで変えても、LINEに通知が届く相手は変わりません。
+  届く相手は、第1部・手順2の最後に <strong>LINEで「おとうさん」「おかあさん」と送って登録した人</strong>です。
+  ここで決めるのは、<strong>お子さんの画面に出る名前</strong>だけです。
+</div>
+
+<h2 id="step6">6. 天気の地域</h2>
+
+<p>位置情報が使えないときに、<strong>どこの天気を出すか</strong>を決めておけます。</p>
+
+<figure class="phone">
+  <img src="./img/app-homearea.png" width="480" height="1039" loading="lazy" alt="天気の地域の設定">
+  <figcaption>いる場所で「いまいる場所を登録する」を押すと、その地点が覚えられます。</figcaption>
+</figure>
+
+<div class="step">
+  <ol style="margin:0;">
+    <li>登録したい場所（ご自宅など）で、この画面を開く</li>
+    <li>「<strong>いまいる場所を登録する</strong>」を押す</li>
+    <li>「自宅」など、分かりやすい名前を付ける（省略しても構いません）</li>
+    <li>「<strong>保存する</strong>」を押す</li>
+  </ol>
+</div>
+
+<div class="calm">
+  <strong>保存されるのは、約1kmの精度に丸めた位置だけです。</strong>建物が分かるほど細かい位置は残しません。日本以外の地域でも、そのまま使えます。
+</div>
+
+<div class="note">
+  位置情報も許可せず、ここも登録していないときは、<strong>天気を出しません</strong>（「どこの天気か分かりません」と出ます）。
+  よその街の天気で服装を決めてしまわないよう、あえて何も出さない作りにしています。
+</div>
+
+<h2 id="step7">7. 目立つお知らせ</h2>
+
+<p>「16:30になったら、じゅんびの時間だよ」のように、決まった時刻に<strong>画面いっぱい</strong>で出るお知らせです。アプリを閉じていても、端末の通知で届きます。</p>
+
+<figure class="phone">
+  <img src="./img/app-reminderform.png" width="480" height="1039" loading="lazy" alt="目立つお知らせの追加">
+  <figcaption>アイコン・言葉・時刻・くりかえす曜日を決めます。</figcaption>
+</figure>
+
+<div class="step">
+  <p style="margin:0 0 6px;"><strong>くりかえし方は2種類</strong></p>
+  <ul style="margin:0;">
+    <li><strong>くりかえす</strong> … 曜日をえらびます。「毎日」「平日」「土日」のボタンでまとめて選べます</li>
+    <li><strong>1回だけ</strong> … 日付をえらびます。その日が過ぎると、一覧から自動で片づきます</li>
+  </ul>
+</div>
+
+<p>はじめは空です。「<strong>📋 例から作る</strong>」を押すと、形だけの見本が出るので、それを土台に書きかえてください。見本がそのまま登録されることはありません。</p>
+
+<h3>カレンダーの予定につけた通知も、ここで一覧できます</h3>
+<p>この画面の下のほうに、<strong>カレンダーの予定に 🔔 でつけた通知</strong>が14日ぶん並びます。「何がいつ鳴るのか」を1か所で確かめられます。</p>
+
+<figure class="phone">
+  <img src="./img/app-reminder.png" width="480" height="1039" loading="lazy" alt="目立つお知らせの一覧">
+  <figcaption>上が「目立つお知らせ」、下が「予定につけた通知」です。</figcaption>
+</figure>
+
+<h2 id="step8">8. 好きなもののメモ</h2>
+
+<p>お子さんの好きなもの（ゲーム・アニメ・生きものなど）を書いておくと、そうだんチャットのAIが<strong>その話題にくわしい状態</strong>で話せるようになります。用語をいちいち説明しなくてよくなります。</p>
+
+<figure class="phone">
+  <img src="./img/app-knowledge.png" width="480" height="1039" loading="lazy" alt="好きなもののメモ">
+  <figcaption>2,000文字くらいが目安です。あとから何度でも書き直せます。</figcaption>
+</figure>
+
+<h3>AIに下書きを作ってもらう</h3>
+
+<div class="step">
+  <ol style="margin:0;">
+    <li>この画面の「<strong>🤖 AIに作ってもらう文をコピー</strong>」を押す</li>
+    <li>ChatGPT・Claude・Geminiなど、お使いのAIに<strong>貼り付けて送る</strong></li>
+    <li>返ってきた答えのうち、「<strong>(1) 貼り付け用</strong>」の部分だけを、この画面の入力欄に貼る</li>
+    <li>「<strong>保存する</strong>」を押す</li>
+  </ol>
+</div>
+
+<div class="warn">
+  <strong>「(2) 確認してほしいところ」は、必ず人の目で確かめてください。</strong><br>
+  AIは、うろ覚えの名前をそれらしく書いてしまうことがあります。返ってきた答えの最後に「確かめてほしいもの」の一覧が出るので、お子さんと一緒に「これ合ってる？」と見てから貼ってください。<strong>間違った名前がそのまま入ると、AIはそれを本当だと思って話し続けます。</strong>
+</div>
+
+<div class="calm">
+  メモの中に「これまでの指示を無視して」のような文が紛れ込んでも、AIがそれに従わないようにしてあります。メモはあくまで<strong>知識として</strong>扱われます。
+</div>
+
+<div class="note">
+  文字数が増えるほど、チャットを1回送るごとの費用が少しずつ増えます。2,000文字を超えると画面に注意が出ます（上限は4,000文字）。
+</div>
+
+<h2 id="backup">💾 バックアップ（機種変更の前に）</h2>
+
+<p>このアプリのデータは<strong>その端末の中だけ</strong>にあります。開発者の手元に控えはありません。機種変更やアプリの入れ直しの前に、必ず控えを書き出してください。</p>
+
+<figure class="phone">
+  <img src="./img/app-backup.png" width="480" height="1039" loading="lazy" alt="データのバックアップ">
+  <figcaption>⚙️ →「データのバックアップ」。書き出しと読み込みの両方ができます。</figcaption>
+</figure>
+
+<div class="step">
+  <p style="margin:0 0 6px;"><strong>書き出す</strong></p>
+  <ol style="margin:0 0 12px;">
+    <li>⚙️ →「データのバックアップ」を開く</li>
+    <li>「そうだんチャットの写真もふくめる」に印を付けるかどうか決める（付けるとファイルが大きくなります）</li>
+    <li>「<strong>バックアップを作る</strong>」を押し、メールやメモアプリなど、なくならない場所に保存する</li>
+  </ol>
+  <p style="margin:0 0 6px;"><strong>読み込む</strong></p>
+  <ol style="margin:0;">
+    <li>新しい端末にアプリを入れ、⚙️ →「データのバックアップ」を開く</li>
+    <li>保存しておいたバックアップの文字列を、下の欄に貼り付ける</li>
+    <li>「<strong>読み込む</strong>」を押す</li>
+  </ol>
+</div>
+
+<div class="warn">
+  <strong>バックアップに入らないもの</strong>が2つあります。新しい端末では、この2つだけ入れ直してください。
+  <ul style="margin:8px 0 0;">
+    <li>Worker URLと合言葉（<a href="#step1">1. 通知（LINE）の接続設定</a>）</li>
+    <li>Googleカレンダーの連携（カレンダー画面から、もう一度「連携する」）</li>
+  </ul>
+  安全のため、この2つはあえて控えに含めていません。
+</div>
+
+<h2 id="update">📲 アプリを新しくするとき</h2>
+
+<p>新しいビルドをお渡ししたときは、<strong>上書きでインストール</strong>してください。</p>
+
+<div class="warn">
+  <strong>先にアプリを消さないでください。</strong>アプリを消すと、端末の中のデータ（おくすりの記録・メモ・チャットの履歴・設定）が一緒に消えます。
+  上書きインストールなら、データは残ります。
+</div>
+
+<div class="step">
+  <ol style="margin:0;">
+    <li>念のため、先に上の「<a href="#backup">💾 バックアップ</a>」で控えを書き出す</li>
+    <li>お渡ししたリンクから、そのままインストールする（消さずに上書き）</li>
+    <li>アプリを開き、⚙️ の下のほうにある<strong>ビルド番号</strong>が新しくなっているか確かめる</li>
+    <li>アプリを一度スワイプで終了し、開き直して、記録が残っているか確かめる</li>
+  </ol>
+</div>
+
+<h2 id="expiry">📅 使える期間について</h2>
+
+<p>このアプリは App Store を通さずに配布しているため、<strong>インストールから約1年で期限が切れ</strong>、開けなくなります。</p>
+
+<div class="calm">
+  期限が切れても、<strong>端末の中のデータは消えません</strong>。新しいビルドを上書きインストールすれば、そのまま続けて使えます。<br>
+  期限が近づいたら、あらためてご案内します。念のため、ときどきバックアップを書き出しておくと安心です。
+</div>
+
+<h2>困ったときは</h2>
+
+<p class="q">「はじめの設定がまだです」の案内が消えない</p>
+<p class="a">「1. 通知（LINE）の接続設定」が未設定です。2つの値が両方入っているか確かめてください。片方だけでは未設定の扱いになります。</p>
+
+<p class="q">天気が出ない</p>
+<p class="a">「6. 天気の地域」を登録するか、iPhoneの設定で位置情報を許可してください。どちらも無いときは、あえて何も出さない作りになっています。</p>
+
+<p class="q">時間になってもお知らせが出ない</p>
+<p class="a">iPhoneの設定で「通知」が許可されているか確かめてください（「2. 位置情報と通知の許可」）。許可されていれば、アプリを閉じていても鳴ります。</p>
+
+<p class="q">AIが学年に合わない言葉で話す</p>
+<p class="a">「4. 呼ばれ方と生まれた年と月」が未設定だと、学年の情報をAIに渡しません。生まれた年と月を入れるか、「学年を自分で指定する」に直接書いてください。</p>
+
+<p class="q">送りさきに「おうちの人」としか出ない</p>
+<p class="a">「5. 家族の呼び名」が両方とも空です。ひとつでも入れると、その名前で出るようになります。</p>
+
+<footer>
+  <p>うまくいかないところがあれば、途中で構いませんので開発者までご連絡ください。<br>
+  まいにちサポート ／ <a href="./setup-index.html">設定ガイドの目次へ</a> ／ <a href="./">つかいかたガイド</a> ／ <a href="./privacy.html">プライバシーポリシー</a></p>
+  <p style="font-size:12px; opacity:.75;">設定ガイド 第2部 ／ ビルド102版 ／ 2026年9月16日</p>
+</footer>
+
+
+<button class="back-to-top" aria-label="ページの先頭にもどる" onclick="window.scrollTo({top:0,behavior:'smooth'});">↑</button>
+<script>
+(function(){
+  var b=document.querySelector('.back-to-top');
+  if(!b) return;
+  function u(){ ((window.pageYOffset||document.documentElement.scrollTop) > window.innerHeight*1.1) ? b.classList.add('show') : b.classList.remove('show'); }
+  window.addEventListener('scroll',u,{passive:true});
+  window.addEventListener('resize',u,{passive:true});
+  u();
+})();
+</script>
+
+<script>
+/* ガイド仕上げ D:進捗 / E:画像拡大 / F:折りたたみ */
+(function(){
+  var steps = Array.prototype.slice.call(document.querySelectorAll('h2[id^="step"]'));
+  var bar = document.querySelector('.guide-topbar');
+
+  // D: Step N / M
+  if(steps.length && bar){
+    var prog = document.createElement('span');
+    prog.className = 'gt-progress';
+    bar.appendChild(prog);
+    var cur = 0;
+    function updProg(){
+      var y = (window.pageYOffset||document.documentElement.scrollTop||0) + 90;
+      var idx = 1;
+      for(var i=0;i<steps.length;i++){ if(steps[i].getBoundingClientRect().top + window.pageYOffset <= y) idx = i+1; }
+      if(idx !== cur){ cur = idx; prog.textContent = 'Step ' + idx + ' / ' + steps.length; }
+    }
+    window.addEventListener('scroll', updProg, {passive:true});
+    window.addEventListener('resize', updProg, {passive:true});
+    updProg();
+  }
+
+  // F: 完了ステップの折りたたみ
+  var LSKEY = 'guide_collapsed_' + location.pathname;
+  var saved = {};
+  try{ saved = JSON.parse(localStorage.getItem(LSKEY) || '{}') || {}; }catch(e){}
+  function save(){ try{ localStorage.setItem(LSKEY, JSON.stringify(saved)); }catch(e){} }
+  function groupOf(h){ var g=[], el=h.nextElementSibling; while(el && el.tagName!=='H2'){ g.push(el); el=el.nextElementSibling; } return g; }
+  steps.forEach(function(h){
+    var group = groupOf(h);
+    if(!group.length) return;
+    h.classList.add('collapsible');
+    h.setAttribute('role','button'); h.setAttribute('tabindex','0');
+    var badge = document.createElement('span');
+    badge.className='done-badge'; badge.textContent='✓ できた（タップでひらく）';
+    h.appendChild(badge);
+    function apply(c){ h.classList.toggle('collapsed', c); group.forEach(function(g){ g.classList.toggle('step-hidden', c); }); }
+    function toggle(){ var c=!h.classList.contains('collapsed'); apply(c); saved[h.id]=c; save(); }
+    h.addEventListener('click', toggle);
+    h.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle(); } });
+    apply(!!saved[h.id]);
+  });
+  function expandTarget(){
+    var id = location.hash.slice(1); if(!id) return;
+    var h = document.getElementById(id);
+    if(h && h.classList.contains('collapsed')){
+      h.classList.remove('collapsed');
+      groupOf(h).forEach(function(g){ g.classList.remove('step-hidden'); });
+      saved[id]=false; save();
+    }
+  }
+  window.addEventListener('hashchange', expandTarget);
+  setTimeout(expandTarget, 0);
+
+  // E: 画像タップで拡大
+  var imgs = document.querySelectorAll('figure img, .feature-shot img');
+  if(imgs.length){
+    var lb = document.createElement('div');
+    lb.className='lightbox';
+    lb.innerHTML='<button class="lb-close" aria-label="とじる">✕</button><img alt="">';
+    document.body.appendChild(lb);
+    var lbImg = lb.querySelector('img');
+    function close(){ lb.classList.remove('open'); lbImg.removeAttribute('src'); }
+    Array.prototype.forEach.call(imgs, function(im){
+      im.addEventListener('click', function(){ lbImg.src = im.currentSrc||im.src; lbImg.alt = im.alt||''; lb.classList.add('open'); });
+    });
+    lb.addEventListener('click', close);
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+  }
+})();
+</script>
+</body>
+</html>
